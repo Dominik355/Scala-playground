@@ -1,5 +1,7 @@
 package com.bilik.playground.scala.implicitParameters
 
+import com.bilik.playground.scala.implicitParameters.Comparator._
+
 object ImplicitTour {
   def main(args: Array[String]): Unit = {
 
@@ -15,18 +17,4 @@ object ImplicitTour {
 //    println(max[String]("hello", "world"))
 
   } // END OF MAIN
-}
-
-trait Comparator[A] {
-  def compare(x: A, y: A): Int
-}
-
-object Comparator {
-  implicit object IntComparator extends Comparator[Int] {
-    def compare(x: Int, y: Int): Int = Integer.compare(x, y)
-  }
-
-  implicit object StringComparator extends Comparator[String] {
-    def compare(x: String, y: String): Int = x.compareTo(y)
-  }
 }
